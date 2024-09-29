@@ -1,0 +1,42 @@
+﻿@page "/"
+@rendermode InteractiveServer
+@inject IDataService data
+@attribute [Authorize]
+
+<PageTitle>Задачи</PageTitle>
+
+<h1>Мои задачи</h1>
+
+<div class="container">
+    @if (tasks == null)
+    {
+        <p>Loading...</p>
+    }
+    else
+    {
+        <div class="card-group">
+            @foreach (var task in tasks)
+            {
+                <div class="card">
+                 <div class="card-header">
+                  @task.Title
+                 </div>
+                 <div class="card-body">
+                  <p>@task.Description</p>
+                  <p>@task.CreatedDate</p>
+                 </div>
+                </div>
+            }
+        </div>
+    }
+</div>
+
+@code
+{
+	IEnumerable<TaskItem>? tasks;
+	protected override async System.Threading.Tasks.Task OnInitializedAsync()
+	{
+		await base.OnInitializedAsync();
+		tasks = await data.GetTaskItemsAsync();
+	}
+}

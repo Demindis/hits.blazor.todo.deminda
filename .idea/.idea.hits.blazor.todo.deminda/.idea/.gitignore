@@ -1,0 +1,13 @@
+﻿# Файлы, игнорируемые по умолчанию
+/shelf/
+/workspace.xml
+# Игнорируемые файлы Rider
+/.idea.hits.blazor.todo.deminda.iml
+/projectSettingsUpdater.xml
+/modules.xml
+/contentModel.xml
+# Запросы HTTP-клиента в редакторе
+/httpRequests/
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
